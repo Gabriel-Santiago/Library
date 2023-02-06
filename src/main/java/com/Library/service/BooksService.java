@@ -4,27 +4,29 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Library.model.Books;
 import com.Library.repository.BooksRepository;
 
+@Service
 public class BooksService {
 	
 	@Autowired
-	BooksRepository repository;
+	BooksRepository booksRepository;
 	
 	public void save(int id, Books entity) {
 		if(id != 0) {
 			entity.setId(id);
 		}
-		repository.save(entity);
+		booksRepository.save(entity);
 	}
 	
 	public Books find(int id) {
 		if (id < 1) {
 			return null;
 		}
-		Optional<Books> books = repository.findById(id);
+		Optional<Books> books = booksRepository.findById(id);
 
 		if (books.isPresent()) {
 			return books.get();
@@ -33,17 +35,20 @@ public class BooksService {
 	}
 
 	public List<Books> findAll() {
-		return repository.findAll();
+		return booksRepository.findAll();
 	}
 	
 	public void delete(int id) {
 		Books books = find(id);
-		repository.delete(books);
+		booksRepository.delete(books);
 	}
 	
 	public void update(int id, Books entity) {	
 		entity.setId(id);
-		repository.save(entity);				
+		booksRepository.save(entity);				
 	}
 
+	public List<Books> findByNota(int nota) {
+		return booksRepository.findByNota(nota);
+	}
 }
