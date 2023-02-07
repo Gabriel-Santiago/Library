@@ -10,6 +10,6 @@ import com.Library.model.Manga;
 @Repository
 public interface MangaRepository extends JpaRepository<Manga, Integer>{
 
-	List<Manga> findByNota(int nota);
+	List<Manga> findByNota(float nota);
 	
 }

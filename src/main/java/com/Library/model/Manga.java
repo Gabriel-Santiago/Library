@@ -20,7 +20,7 @@ public class Manga {
 	@SequenceGenerator(name="sequence",sequenceName = "manga_id_seq", allocationSize=1)
 	private int id;
 	private String nome;
-	private int nota;
+	private float nota;
 	
 	@OneToOne(mappedBy = "mangaPhoto")
 	@Lob
@@ -42,11 +42,11 @@ public class Manga {
 		this.nome = nome;
 	}
 	
-	public int getNota() {
+	public float getNota() {
 		return nota;
 	}
 	
-	public void setNota(int nota) {
+	public void setNota(float nota) {
 		this.nota = nota;
 	}
 

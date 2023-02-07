@@ -48,7 +48,7 @@ public class ComicBooksService {
 		comicBooksRepository.save(entity);				
 	}
 	
-	public List<ComicBooks> findByNota(int nota) {
+	public List<ComicBooks> findByNota(float nota) {
 		return comicBooksRepository.findByNota(nota);
 	}
 }

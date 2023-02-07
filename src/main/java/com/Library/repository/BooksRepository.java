@@ -10,6 +10,6 @@ import com.Library.model.Books;
 @Repository
 public interface BooksRepository extends JpaRepository<Books, Integer> {
 	
-	List<Books> findByNota(int nota);
+	List<Books> findByNota(float nota);
 
 }
