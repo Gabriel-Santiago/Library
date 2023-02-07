@@ -25,7 +25,7 @@ public class BooksController {
 	BooksService service;
 	
 	@GetMapping
-    public ResponseEntity<List<Books>> findall() {
+    public ResponseEntity<List<Books>> findAll() {
         return new ResponseEntity<List<Books>>(service.findAll(), HttpStatus.OK);
     }
     
