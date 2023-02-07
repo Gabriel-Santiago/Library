@@ -18,7 +18,7 @@ import com.Library.model.ComicBooks;
 import com.Library.service.ComicBooksService;
 
 @RestController
-@RequestMapping(path = "/ComicBooks")
+@RequestMapping(path = "/comicBooks")
 public class ComicBooksController {
 
 	@Autowired
