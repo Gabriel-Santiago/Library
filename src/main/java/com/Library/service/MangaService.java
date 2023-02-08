@@ -48,7 +48,7 @@ public class MangaService {
 		mangaRepository.save(entity);				
 	}
 
-	public List<Manga> findByNota(float nota) {
+	public List<Manga> findByNota(double nota) {
 		return mangaRepository.findByNota(nota);
 	}
 }

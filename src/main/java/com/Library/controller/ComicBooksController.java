@@ -41,7 +41,7 @@ public class ComicBooksController {
     }
     
     @GetMapping(path = "/{nota}")
-	public ResponseEntity<List<ComicBooks>> findByNota(@PathVariable("nota") float nota) {
+	public ResponseEntity<List<ComicBooks>> findByNota(@PathVariable("nota") double nota) {
 		return new ResponseEntity<List<ComicBooks>>(service.findByNota(nota), HttpStatus.OK);	
 		
 	}

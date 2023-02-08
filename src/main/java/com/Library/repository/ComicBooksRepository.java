@@ -10,6 +10,6 @@ import com.Library.model.ComicBooks;
 @Repository
 public interface ComicBooksRepository extends JpaRepository<ComicBooks, Integer>{
 
-	List<ComicBooks> findByNota(float nota);
+	List<ComicBooks> findByNota(double nota);
 	
 }

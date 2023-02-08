@@ -48,7 +48,7 @@ public class BooksService {
 		booksRepository.save(entity);				
 	}
 
-	public List<Books> findByNota(float nota) {
+	public List<Books> findByNota(double nota) {
 		return booksRepository.findByNota(nota);
 	}
 }

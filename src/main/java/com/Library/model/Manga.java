@@ -17,7 +17,7 @@ public class Manga {
 	@SequenceGenerator(name="sequence",sequenceName = "manga_id_seq", allocationSize=1)
 	private int id;
 	private String nome;
-	private float nota;
+	private double nota;
 	
 	@OneToOne(mappedBy = "manga")
 	private Photos photos;
@@ -38,11 +38,11 @@ public class Manga {
 		this.nome = nome;
 	}
 	
-	public float getNota() {
+	public double getNota() {
 		return nota;
 	}
 	
-	public void setNota(float nota) {
+	public void setNota(double nota) {
 		this.nota = nota;
 	}
 
@@ -59,7 +59,7 @@ public class Manga {
 		return "Manga [id=" + id + ", nome=" + nome + ", nota=" + nota + ", photos=" + photos + "]";
 	}
 
-	public Manga(int id, String nome, int nota, Photos photos) {
+	public Manga(int id, String nome, double nota, Photos photos) {
 		super();
 		this.id = id;
 		this.nome = nome;
