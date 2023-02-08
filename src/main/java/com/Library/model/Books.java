@@ -1,12 +1,9 @@
 package com.Library.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -22,9 +19,8 @@ public class Books {
 	private String nome;
 	private float nota;
 	
-	@OneToOne(mappedBy = "bookPhoto")
-	@Lob
-	private List<Photos> photos;
+	@OneToOne(mappedBy = "books")
+	private Photos photos;
 	
 	public int getId() {
 		return id;
@@ -50,11 +46,11 @@ public class Books {
 		this.nota = nota;
 	}
 
-	public List<Photos> getPhotos() {
+	public Photos getPhotos() {
 		return photos;
 	}
 
-	public void setPhotos(List<Photos> photos) {
+	public void setPhotos(Photos photos) {
 		this.photos = photos;
 	}
 
@@ -63,7 +59,7 @@ public class Books {
 		return "Books [id=" + id + ", nome=" + nome + ", nota=" + nota + ", photos=" + photos + "]";
 	}
 
-	public Books(int id, String nome, int nota, List<Photos> photos) {
+	public Books(int id, String nome, int nota, Photos photos) {
 		super();
 		this.id = id;
 		this.nome = nome;

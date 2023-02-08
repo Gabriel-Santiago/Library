@@ -26,18 +26,15 @@ public class Photos {
 	private byte[] photo;
 	
 	@OneToOne
-	@JoinColumn(name = "bookPhoto")
-	@JsonIgnore
+	@JoinColumn(name="photosBooks")
 	private Books books;
 	
 	@OneToOne
-	@JoinColumn(name = "comicBookPhoto")
-	@JsonIgnore
+	@JoinColumn(name="photosComicBooks")
 	private ComicBooks comicBooks;
 	
 	@OneToOne
-	@JoinColumn(name = "mangaPhoto")
-	@JsonIgnore
+	@JoinColumn(name="photosManga")
 	private Manga manga;
 
 	public int getId() {
