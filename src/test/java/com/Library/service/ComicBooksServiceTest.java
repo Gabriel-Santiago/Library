@@ -20,15 +20,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.Library.model.Books;
+import com.Library.model.ComicBooks;
 import com.Library.model.Photos;
-import com.Library.repository.BooksRepository;
+import com.Library.repository.ComicBooksRepository;
 
-public class BooksServiceTest {
-	
+public class ComicBooksServiceTest {
+
 	private static final int ID = 1;
-	private static final String NOME = "Gente Pobre";
-	private static final double NOTA = 8.64;
+	private static final String NOME = "Batman: A piada Mortal";
+	private static final double NOTA = 9.63;
 
 	
 	// Photos
@@ -37,20 +37,20 @@ public class BooksServiceTest {
 	private static final String TIPO = "PNG";
 	
 	@InjectMocks
-	private BooksService service;
+	private ComicBooksService service;
 	
 	@Mock
-	private BooksRepository repository;
+	private ComicBooksRepository repository;
 	
-	private Books books;
+	private ComicBooks comicBooks;
 	
 	private Photos photos;
 	
 	private void start() {
 		
-		photos = new Photos(ID_1, NOME_1, TIPO, null, books, null, null);
+		photos = new Photos(ID_1, NOME_1, TIPO, null, null, comicBooks, null);
 		
-		books = new Books(ID, NOME, NOTA, photos);
+		comicBooks = new ComicBooks(ID, NOME, NOTA, photos);
 	}
 	
 	@BeforeEach
@@ -61,22 +61,22 @@ public class BooksServiceTest {
 	
 	@Test
 	public void whenFindByIdThenReturnNullIfIdLessThan1() {
-		Books response = service.find(0);
+		ComicBooks response = service.find(0);
 
 		assertNull(response);
 	}
 	
 	@Test
 	public void whenSaveVerifySuccess() throws ParseException, IOException {
-		when(repository.save(any())).thenReturn(books);
-		service.save(1, books);
+		when(repository.save(any())).thenReturn(comicBooks);
+		service.save(1, comicBooks);
 		verify(repository).save(any());
 	}
 	
 	@Test
 	public void whenUpdateVerifySuccess() throws ParseException, IOException {
-		when(repository.save(any())).thenReturn(books);
-		service.update(ID, books);;
+		when(repository.save(any())).thenReturn(comicBooks);
+		service.update(ID, comicBooks);;
 		verify(repository).save(any()); 
 	}
 	
@@ -85,15 +85,15 @@ public class BooksServiceTest {
 	public void whenFindByIdThenReturnNullIfOptionalNotPresent() {
 		when(repository.findById(anyInt())).thenReturn(Optional.empty());
 
-		Books response = service.find(ID);
+		ComicBooks response = service.find(ID);
 
 		assertNull(response);
 	}	
 	
 	@Test
 	public void whenDeleteVerifySuccess() {
-		when(repository.findById(anyInt())).thenReturn(Optional.of(books));
-		doNothing().when(repository).delete(books);
+		when(repository.findById(anyInt())).thenReturn(Optional.of(comicBooks));
+		doNothing().when(repository).delete(comicBooks);
 			
 		service.delete(ID);
 
@@ -103,9 +103,9 @@ public class BooksServiceTest {
 	
 	@Test
 	public void whenFindAllThenReturnAnList() {
-		when(repository.findAll()).thenReturn(List.of(books));
+		when(repository.findAll()).thenReturn(List.of(comicBooks));
 
-		List<Books> response = service.findAll();
+		List<ComicBooks> response = service.findAll();
 
 		assertNotNull(response);
 		assertEquals(ID, response.get(0).getId());
@@ -115,11 +115,11 @@ public class BooksServiceTest {
 	}
 	
 	@Test
-	public void whenFindAllOfBooksNotaThenReturnAnList() {
-		when(repository.findAll()).thenReturn(List.of(books));
+	public void whenFindAllOfComicBooksNotaThenReturnAnList() {
+		when(repository.findAll()).thenReturn(List.of(comicBooks));
 
-		List<Books> response = service.findByNota(8.64);
+		List<ComicBooks> response = service.findByNota(9.63);
 
 		assertNotNull(response);
-	}	
+	}
 }
