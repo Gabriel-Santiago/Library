@@ -53,7 +53,7 @@ public class ComicBooksController {
     
     @PutMapping(path = "/{id}")
     public void update(  @PathVariable("id") int id, @RequestBody ComicBooks ComicBooks) {
-        service.save(id, ComicBooks);
+        service.update(id, ComicBooks);
     }
     
     @DeleteMapping(path = "/{id}")

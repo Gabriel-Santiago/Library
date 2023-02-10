@@ -62,16 +62,16 @@ public class PhotosService {
 	
 	public List<Photos> findAllOfBooks(int books_id) {
 		List<Photos> photos = photosRepository.findByBooksId(books_id);
-		return photosRepository.findByBooksId(books_id);
+		return photos;
 	}
 	
 	public List<Photos> findAllOfComicsBooks(int comicBooks_id) {
 		List<Photos> photos = photosRepository.findByBooksId(comicBooks_id);
-		return photosRepository.findByBooksId(comicBooks_id);
+		return photos;
 	}
 	
 	public List<Photos> findAllOfManga(int manga_id) {
 		List<Photos> photos = photosRepository.findByBooksId(manga_id);
-		return photosRepository.findByBooksId(manga_id);
+		return photos;
 	}
 }

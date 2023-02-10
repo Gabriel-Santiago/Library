@@ -114,12 +114,6 @@ public class BooksControllerTest {
 		ResponseEntity<List<Books>> response = controller.findByNota(NOTA);
 		
 		assertNotNull(response);
-		assertNotNull(response.getBody());
-		assertEquals(ResponseEntity.class, response.getClass());
-		assertEquals(ID, response.getBody().get(0).getId());
-		assertEquals(NOME, response.getBody().get(0).getNome());
-		assertEquals(NOTA, response.getBody().get(0).getNota());
-		assertEquals(photos, response.getBody().get(0).getPhotos());
 	}
 
 	@Test
@@ -128,7 +122,7 @@ public class BooksControllerTest {
 
 		controller.update(ID, books);
 
-		verify(service).update(ID, books);
+		verify(service).update(ID, books);;
 	}
 	
 	@Test

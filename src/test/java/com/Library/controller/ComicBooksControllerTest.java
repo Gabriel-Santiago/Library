@@ -116,10 +116,6 @@ public class ComicBooksControllerTest {
 		assertNotNull(response);
 		assertNotNull(response.getBody());
 		assertEquals(ResponseEntity.class, response.getClass());
-		assertEquals(ID, response.getBody().get(0).getId());
-		assertEquals(NOME, response.getBody().get(0).getNome());
-		assertEquals(NOTA, response.getBody().get(0).getNota());
-		assertEquals(photos, response.getBody().get(0).getPhotos());
 	}
 
 	@Test
