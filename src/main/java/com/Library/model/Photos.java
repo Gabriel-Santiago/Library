@@ -27,14 +27,17 @@ public class Photos {
 	
 	@OneToOne
 	@JoinColumn(name="photosBooks")
+	@JsonIgnore
 	private Books books;
 	
 	@OneToOne
 	@JoinColumn(name="photosComicBooks")
+	@JsonIgnore
 	private ComicBooks comicBooks;
 	
 	@OneToOne
 	@JoinColumn(name="photosManga")
+	@JsonIgnore
 	private Manga manga;
 
 	public int getId() {

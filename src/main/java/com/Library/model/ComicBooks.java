@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,6 +21,7 @@ public class ComicBooks {
 	private double nota;
 	
 	@OneToOne(mappedBy = "comicBooks")
+	@Lob
 	private Photos photos;
 	
 	public int getId() {
