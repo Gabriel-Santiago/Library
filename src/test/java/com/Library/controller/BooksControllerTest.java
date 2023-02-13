@@ -122,7 +122,7 @@ public class BooksControllerTest {
 
 		controller.update(ID, books);
 
-		verify(service).update(ID, books);;
+		verify(service).save(ID, books);;
 	}
 	
 	@Test

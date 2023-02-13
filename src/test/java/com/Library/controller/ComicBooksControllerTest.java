@@ -124,7 +124,7 @@ public class ComicBooksControllerTest {
 
 		controller.update(ID, comicBooks);
 
-		verify(service).update(ID, comicBooks);
+		verify(service).save(ID, comicBooks);
 	}
 	
 	@Test

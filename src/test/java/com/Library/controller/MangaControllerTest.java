@@ -124,7 +124,7 @@ public class MangaControllerTest {
 
 		controller.update(ID, manga);
 
-		verify(service).update(ID, manga);
+		verify(service).save(ID, manga);
 	}
 	
 	@Test

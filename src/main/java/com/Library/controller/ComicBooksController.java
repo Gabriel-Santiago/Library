@@ -40,7 +40,7 @@ public class ComicBooksController {
 		}
     }
     
-    @GetMapping(path = "/{nota}")
+    @GetMapping(path = "/search")
 	public ResponseEntity<List<ComicBooks>> findByNota(@PathVariable("nota") double nota) {
 		return new ResponseEntity<List<ComicBooks>>(service.findByNota(nota), HttpStatus.OK);	
 		
@@ -53,7 +53,7 @@ public class ComicBooksController {
     
     @PutMapping(path = "/{id}")
     public void update(  @PathVariable("id") int id, @RequestBody ComicBooks ComicBooks) {
-        service.update(id, ComicBooks);
+        service.save(id, ComicBooks);
     }
     
     @DeleteMapping(path = "/{id}")
