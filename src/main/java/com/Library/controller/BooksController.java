@@ -41,6 +41,17 @@ public class BooksController {
     }
     
     @GetMapping(path = "/search")
+    public ResponseEntity<Books> findByGenero(@PathVariable("genero") String genero) {
+    	Books books = service.findByGenero(genero);
+		
+		if(books != null) {
+			return new ResponseEntity<Books>(books, HttpStatus.OK);	
+		} else {
+			return new ResponseEntity<Books>(HttpStatus.NOT_FOUND);
+		}
+    }
+    
+    @GetMapping(path = "/searchNota")
 	public ResponseEntity<List<Books>> findByNota(@PathVariable("nota") double nota) {
 		return new ResponseEntity<List<Books>>(service.findByNota(nota), HttpStatus.OK);	
 		

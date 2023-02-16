@@ -12,4 +12,6 @@ public interface ComicBooksRepository extends JpaRepository<ComicBooks, Integer>
 
 	List<ComicBooks> findByNota(double nota);
 	
+	ComicBooks findByGenero(String genero);
+	
 }

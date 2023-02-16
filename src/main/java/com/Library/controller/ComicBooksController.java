@@ -41,6 +41,17 @@ public class ComicBooksController {
     }
     
     @GetMapping(path = "/search")
+    public ResponseEntity<ComicBooks> findByGenero(@PathVariable("genero") String genero) {
+    	ComicBooks comicBooks = service.findByGenero(genero);
+		
+		if(comicBooks != null) {
+			return new ResponseEntity<ComicBooks>(comicBooks, HttpStatus.OK);	
+		} else {
+			return new ResponseEntity<ComicBooks>(HttpStatus.NOT_FOUND);
+		}
+    }
+    
+    @GetMapping(path = "/searchNota")
 	public ResponseEntity<List<ComicBooks>> findByNota(@PathVariable("nota") double nota) {
 		return new ResponseEntity<List<ComicBooks>>(service.findByNota(nota), HttpStatus.OK);	
 		

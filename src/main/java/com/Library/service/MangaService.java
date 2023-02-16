@@ -51,4 +51,8 @@ public class MangaService {
 	public List<Manga> findByNota(double nota) {
 		return mangaRepository.findByNota(nota);
 	}
+	
+	public Manga findByGenero(String str) {
+		return mangaRepository.findByGenero(str);
+	}
 }

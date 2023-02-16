@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -29,6 +30,7 @@ public class BooksControllerTest {
 	private static final int ID = 1;
 	private static final String NOME = "Gente Pobre";
 	private static final double NOTA = 8.64;
+	private static final String GENERO = "Romance";
 
 	
 	// Photos
@@ -50,7 +52,7 @@ public class BooksControllerTest {
 		
 		photos = new Photos(ID_1, NOME_1, TIPO, null, books, null, null);
 		
-		books = new Books(ID, NOME, NOTA, photos);
+		books = new Books(ID, NOME, NOTA, GENERO, photos);
 	}
 	
 	@BeforeEach
@@ -75,6 +77,22 @@ public class BooksControllerTest {
 	}
 	
 	@Test
+	public void whenFindByGeneroThenReturnSuccess() {
+		when(service.findByGenero(anyString())).thenReturn(books);
+
+		ResponseEntity<Books> response = controller.findByGenero(GENERO);
+		
+		assertNotNull(response);
+		assertNotNull(response.getBody());
+		assertEquals(ResponseEntity.class, response.getClass());
+		assertEquals(Books.class, response.getBody().getClass());
+		assertEquals(ID, response.getBody().getId());
+		assertEquals(NOME, response.getBody().getNome());
+		assertEquals(NOTA, response.getBody().getNota());
+		assertEquals(photos, response.getBody().getPhotos());
+	}
+	
+	@Test
 	public void whenCreateThenReturnSuccess() throws ParseException, IOException, InterruptedException {
 		controller.save(books);
 
@@ -86,6 +104,17 @@ public class BooksControllerTest {
 		when(service.find(anyInt())).thenReturn(null);
 
 		ResponseEntity<Books> response = controller.find(ID);
+
+		assertNotNull(response);
+		assertNull(response.getBody());
+		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+	}
+	
+	@Test
+	public void whenFindByGeneroThenReturnNotFound() {
+		when(service.findByGenero(null)).thenReturn(null);
+
+		ResponseEntity<Books> response = controller.findByGenero(GENERO);
 
 		assertNotNull(response);
 		assertNull(response.getBody());

@@ -151,6 +151,33 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Books by Genero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books/search?nome=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -299,6 +326,33 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Manga by Genero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/manga/search?nome=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"manga",
+								"search"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -443,6 +497,33 @@
 							"path": [
 								"comicBooks",
 								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comic Books by Genero",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/comicBooks/search?nome=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comicBooks",
+								"search"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": ""
+								}
 							]
 						}
 					},

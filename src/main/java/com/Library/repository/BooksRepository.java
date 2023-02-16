@@ -11,5 +11,7 @@ import com.Library.model.Books;
 public interface BooksRepository extends JpaRepository<Books, Integer> {
 	
 	List<Books> findByNota(double nota);
+	
+	Books findByGenero(String genero);
 
 }

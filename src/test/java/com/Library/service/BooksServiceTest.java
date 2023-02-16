@@ -29,6 +29,7 @@ public class BooksServiceTest {
 	private static final int ID = 1;
 	private static final String NOME = "Gente Pobre";
 	private static final double NOTA = 8.64;
+	private static final String GENERO = "Romance";
 
 	
 	// Photos
@@ -50,7 +51,7 @@ public class BooksServiceTest {
 		
 		photos = new Photos(ID_1, NOME_1, TIPO, null, books, null, null);
 		
-		books = new Books(ID, NOME, NOTA, photos);
+		books = new Books(ID, NOME, NOTA, GENERO, photos);
 	}
 	
 	@BeforeEach
@@ -122,4 +123,11 @@ public class BooksServiceTest {
 
 		assertNotNull(response);
 	}	
+	
+	@Test
+	public void whenFindByGeneroThenReturnAnUser() {
+		when(repository.findByGenero(GENERO)).thenReturn(books);
+		service.findByGenero(GENERO);
+		verify(repository).findByGenero(GENERO);
+	}
 }

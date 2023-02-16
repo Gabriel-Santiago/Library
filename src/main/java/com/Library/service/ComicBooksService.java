@@ -51,4 +51,8 @@ public class ComicBooksService {
 	public List<ComicBooks> findByNota(double nota) {
 		return comicBooksRepository.findByNota(nota);
 	}
+	
+	public ComicBooks findByGenero(String str) {
+		return comicBooksRepository.findByGenero(str);
+	}
 }

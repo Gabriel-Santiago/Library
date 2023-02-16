@@ -12,4 +12,6 @@ public interface MangaRepository extends JpaRepository<Manga, Integer>{
 
 	List<Manga> findByNota(double nota);
 	
+	Manga findByGenero(String genero);
+	
 }

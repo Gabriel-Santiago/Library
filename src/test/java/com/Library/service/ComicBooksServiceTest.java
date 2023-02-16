@@ -29,6 +29,7 @@ public class ComicBooksServiceTest {
 	private static final int ID = 1;
 	private static final String NOME = "Batman: A piada Mortal";
 	private static final double NOTA = 9.63;
+	private static final String GENERO = "Romance gráfico";
 
 	
 	// Photos
@@ -50,7 +51,7 @@ public class ComicBooksServiceTest {
 		
 		photos = new Photos(ID_1, NOME_1, TIPO, null, null, comicBooks, null);
 		
-		comicBooks = new ComicBooks(ID, NOME, NOTA, photos);
+		comicBooks = new ComicBooks(ID, NOME, NOTA, GENERO, photos);
 	}
 	
 	@BeforeEach
@@ -121,5 +122,12 @@ public class ComicBooksServiceTest {
 		List<ComicBooks> response = service.findByNota(9.63);
 
 		assertNotNull(response);
+	}
+	
+	@Test
+	public void whenFindByGeneroThenReturnAnUser() {
+		when(repository.findByGenero(GENERO)).thenReturn(comicBooks);
+		service.findByGenero(GENERO);
+		verify(repository).findByGenero(GENERO);
 	}
 }

@@ -19,6 +19,7 @@ public class Manga {
 	private int id;
 	private String nome;
 	private double nota;
+	private String genero;
 	
 	@OneToOne(mappedBy = "manga")
 	@Lob
@@ -48,6 +49,14 @@ public class Manga {
 		this.nota = nota;
 	}
 
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 	public Photos getPhotos() {
 		return photos;
 	}
@@ -58,14 +67,16 @@ public class Manga {
 
 	@Override
 	public String toString() {
-		return "Manga [id=" + id + ", nome=" + nome + ", nota=" + nota + ", photos=" + photos + "]";
+		return "Manga [id=" + id + ", nome=" + nome + ", nota=" + nota + ", genero=" + genero + ", photos=" + photos
+				+ "]";
 	}
 
-	public Manga(int id, String nome, double nota, Photos photos) {
+	public Manga(int id, String nome, double nota, String genero, Photos photos) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.nota = nota;
+		this.genero = genero;
 		this.photos = photos;
 	}
 

@@ -51,4 +51,8 @@ public class BooksService {
 	public List<Books> findByNota(double nota) {
 		return booksRepository.findByNota(nota);
 	}
+	
+	public Books findByGenero(String str) {
+		return booksRepository.findByGenero(str);
+	}
 }
