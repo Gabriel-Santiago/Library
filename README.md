@@ -7,23 +7,6 @@ Library é uma aplicação back end web feita para por em prática alguns concei
 A aplicação consiste em armazenar os dados de livros, mangás e quadrinhos .
 
 
-
-## Visão do postman
-
-
-
-![](C:\Users\gabri\Desktop\postman.png)
-
-
-
-## Visão do swagger
-
-
-
-![](C:\Users\gabri\Desktop\swagger.png)
-
-
-
 # Tecnologias utilizadas
 
 ## Back end
